@@ -8,7 +8,7 @@ import ua.com.koval.andrey.cryptoapp.api.ApiFactory.BASE_IMG_URL
 import ua.com.koval.andrey.cryptoapp.utils.convertTimestampToTime
 
 @Entity(tableName = "full_price_info")
-data class CoinPriceInfo(
+data class  CoinPriceInfo(
     @SerializedName("TYPE")
     @Expose
     val type: String?,
