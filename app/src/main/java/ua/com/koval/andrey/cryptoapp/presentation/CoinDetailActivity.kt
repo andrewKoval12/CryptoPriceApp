@@ -1,4 +1,4 @@
-package ua.com.koval.andrey.cryptoapp.activity
+package ua.com.koval.andrey.cryptoapp.presentation
 
 import android.content.Context
 import android.content.Intent
@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
 import ua.com.koval.andrey.cryptoapp.databinding.ActivityCoinDetailBinding
-import ua.com.koval.andrey.cryptoapp.viewmodel.CoinViewModel
 
 class CoinDetailActivity : AppCompatActivity() {
 

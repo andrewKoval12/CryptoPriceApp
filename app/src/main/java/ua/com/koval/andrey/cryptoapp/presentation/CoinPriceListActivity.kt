@@ -1,12 +1,11 @@
-package ua.com.koval.andrey.cryptoapp.activity
+package ua.com.koval.andrey.cryptoapp.presentation
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import ua.com.koval.andrey.cryptoapp.adapters.CoinInfoAdapter
+import ua.com.koval.andrey.cryptoapp.presentation.adapters.CoinInfoAdapter
 import ua.com.koval.andrey.cryptoapp.databinding.ActivityCoinPriceListBinding
-import ua.com.koval.andrey.cryptoapp.viewmodel.CoinViewModel
-import ua.com.koval.andrey.cryptoapp.pojo.CoinPriceInfo
+import ua.com.koval.andrey.cryptoapp.data.model.CoinPriceInfo
 
 
 class CoinPriceListActivity : AppCompatActivity() {

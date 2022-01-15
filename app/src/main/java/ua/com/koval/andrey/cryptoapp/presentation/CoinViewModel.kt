@@ -1,4 +1,4 @@
-package ua.com.koval.andrey.cryptoapp.viewmodel
+package ua.com.koval.andrey.cryptoapp.presentation
 
 import android.app.Application
 import android.util.Log
@@ -7,10 +7,10 @@ import androidx.lifecycle.LiveData
 import com.google.gson.Gson
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.schedulers.Schedulers
-import ua.com.koval.andrey.cryptoapp.api.ApiFactory
-import ua.com.koval.andrey.cryptoapp.database.AppDatabase
-import ua.com.koval.andrey.cryptoapp.pojo.CoinPriceInfo
-import ua.com.koval.andrey.cryptoapp.pojo.CoinPriceInfoRawData
+import ua.com.koval.andrey.cryptoapp.data.network.ApiFactory
+import ua.com.koval.andrey.cryptoapp.data.database.AppDatabase
+import ua.com.koval.andrey.cryptoapp.data.model.CoinPriceInfo
+import ua.com.koval.andrey.cryptoapp.data.model.CoinPriceInfoRawData
 import java.util.concurrent.TimeUnit
 
 class CoinViewModel(application: Application) : AndroidViewModel(application) {

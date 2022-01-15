@@ -1,10 +1,10 @@
-package ua.com.koval.andrey.cryptoapp.api
+package ua.com.koval.andrey.cryptoapp.data.network
 
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
-import ua.com.koval.andrey.cryptoapp.pojo.CoinInfoListOfData
-import ua.com.koval.andrey.cryptoapp.pojo.CoinPriceInfoRawData
+import ua.com.koval.andrey.cryptoapp.data.model.CoinInfoListOfData
+import ua.com.koval.andrey.cryptoapp.data.model.CoinPriceInfoRawData
 
 interface ApiService {
 
@@ -18,8 +18,8 @@ interface ApiService {
     @GET("pricemultifull")
     fun getFullPriceList(
         @Query(QUERY_PARAM_API_KEY) apiKey : String = "",
-    @Query(QUERY_PARAM_TO_SYMBOLS) tSyms: String = CURRENCY,
-    @Query(QUERY_PARAM_FROM_SYMBOLS) fSyms: String
+        @Query(QUERY_PARAM_TO_SYMBOLS) tSyms: String = CURRENCY,
+        @Query(QUERY_PARAM_FROM_SYMBOLS) fSyms: String
     ): Single<CoinPriceInfoRawData>
 
     companion object{

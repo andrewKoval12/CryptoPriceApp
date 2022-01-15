@@ -1,4 +1,4 @@
-package ua.com.koval.andrey.cryptoapp.pojo
+package ua.com.koval.andrey.cryptoapp.data.model
 
 import com.google.gson.annotations.Expose
 

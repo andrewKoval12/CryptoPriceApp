@@ -1,11 +1,11 @@
-package ua.com.koval.andrey.cryptoapp.database
+package ua.com.koval.andrey.cryptoapp.data.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import ua.com.koval.andrey.cryptoapp.pojo.CoinPriceInfo
+import ua.com.koval.andrey.cryptoapp.data.model.CoinPriceInfo
 
 @Dao
 interface CoinPriceInfoDao {
