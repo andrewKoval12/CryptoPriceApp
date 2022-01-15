@@ -1,7 +1,7 @@
 package ua.com.koval.andrey.cryptoapp.domain
 
 
-data class CoinPriceInfo(
+data class CoinInfo(
     val fromSymbol: String,
     val toSymbol: String?,
     val price: String?,

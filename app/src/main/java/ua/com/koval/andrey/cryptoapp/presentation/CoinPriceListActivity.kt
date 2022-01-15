@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import ua.com.koval.andrey.cryptoapp.presentation.adapters.CoinInfoAdapter
 import ua.com.koval.andrey.cryptoapp.databinding.ActivityCoinPriceListBinding
-import ua.com.koval.andrey.cryptoapp.data.model.CoinPriceInfo
+import ua.com.koval.andrey.cryptoapp.data.network.model.CoinInfoDto
 
 
 class CoinPriceListActivity : AppCompatActivity() {
@@ -29,13 +29,13 @@ class CoinPriceListActivity : AppCompatActivity() {
             ViewModelProvider.AndroidViewModelFactory(application)
         )[CoinViewModel::class.java]
         viewModel.priceList.observe(this, {
-            mAdapter.coinInfoList = it as ArrayList<CoinPriceInfo>
+            mAdapter.coinInfoList = it as ArrayList<CoinInfoDto>
         })
     }
 
     private fun onClickListener() {
         mAdapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
-            override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
+            override fun onCoinClick(coinPriceInfo: CoinInfoDto) {
                 val intent = CoinDetailActivity.newIntent(
                     this@CoinPriceListActivity,
                     coinPriceInfo.fromSymbol
