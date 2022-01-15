@@ -6,7 +6,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
+import ua.com.koval.andrey.cryptoapp.data.network.ApiFactory
+import ua.com.koval.andrey.cryptoapp.data.network.ApiFactory.BASE_IMG_URL
 import ua.com.koval.andrey.cryptoapp.databinding.ActivityCoinDetailBinding
+import ua.com.koval.andrey.cryptoapp.utils.convertTimestampToTime
 
 class CoinDetailActivity : AppCompatActivity() {
 
@@ -26,31 +29,32 @@ class CoinDetailActivity : AppCompatActivity() {
             finish()
             return
         }
-        val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL)
+        val fromSymbol = intent.getStringExtra(EXTRA_FROM_SYMBOL) ?: EMPTY_SYMBOL
         viewModel = ViewModelProvider(
             this,
             ViewModelProvider.AndroidViewModelFactory(application)
         )[CoinViewModel::class.java]
         if (fromSymbol != null) {
-            viewModel.getDetailInfo(fromSymbol).observe(this, {
+            viewModel.getDetailInfo(fromSymbol).observe(this){
                 with(binding) {
                     with(it) {
                         tvPrice.text = price
                         tvMinPrice.text = lowDay
                         tvMaxPrice.text = highDay
                         tvLastMarket.text = lastMarket
-                        tvLastUpdate.text = getFormattedTime()
+                        tvLastUpdate.text = convertTimestampToTime(it.lastUpdate)
                         tvFromSymbol.text = fromSymbol
                         tvToSymbol.text = toSymbol
-                        Picasso.get().load(getFullImgUrl()).into(ivLogoCoin)
+                        Picasso.get().load(BASE_IMG_URL + imageUrl).into(ivLogoCoin)
                     }
                 }
-            })
+            }
         }
     }
 
     companion object {
         private const val EXTRA_FROM_SYMBOL = "fSym"
+        private const val EMPTY_SYMBOL = ""
         fun newIntent(context: Context, fromSymbol: String): Intent {
             val intent = Intent(context, CoinDetailActivity::class.java)
             intent.putExtra(EXTRA_FROM_SYMBOL, fromSymbol)

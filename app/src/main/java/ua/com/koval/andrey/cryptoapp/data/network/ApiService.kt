@@ -1,6 +1,5 @@
 package ua.com.koval.andrey.cryptoapp.data.network
 
-import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 import ua.com.koval.andrey.cryptoapp.data.network.model.CoinNamesListDto

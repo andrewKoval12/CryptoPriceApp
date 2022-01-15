@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "full_price_info")
 data class CoinInfoDbModel(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     val fromSymbol: String,
     val toSymbol: String?,
     val price: String?,
