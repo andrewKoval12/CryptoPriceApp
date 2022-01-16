@@ -6,10 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.squareup.picasso.Picasso
-import ua.com.koval.andrey.cryptoapp.data.network.ApiFactory
-import ua.com.koval.andrey.cryptoapp.data.network.ApiFactory.BASE_IMG_URL
 import ua.com.koval.andrey.cryptoapp.databinding.ActivityCoinDetailBinding
-import ua.com.koval.andrey.cryptoapp.utils.convertTimestampToTime
 
 class CoinDetailActivity : AppCompatActivity() {
 
@@ -34,19 +31,17 @@ class CoinDetailActivity : AppCompatActivity() {
             this,
             ViewModelProvider.AndroidViewModelFactory(application)
         )[CoinViewModel::class.java]
-        if (fromSymbol != null) {
-            viewModel.getDetailInfo(fromSymbol).observe(this){
-                with(binding) {
-                    with(it) {
-                        tvPrice.text = price
-                        tvMinPrice.text = lowDay
-                        tvMaxPrice.text = highDay
-                        tvLastMarket.text = lastMarket
-                        tvLastUpdate.text = convertTimestampToTime(it.lastUpdate)
-                        tvFromSymbol.text = fromSymbol
-                        tvToSymbol.text = toSymbol
-                        Picasso.get().load(BASE_IMG_URL + imageUrl).into(ivLogoCoin)
-                    }
+        viewModel.getDetailInfo(fromSymbol).observe(this) {
+            with(binding) {
+                with(it) {
+                    tvPrice.text = price
+                    tvMinPrice.text = lowDay
+                    tvMaxPrice.text = highDay
+                    tvLastMarket.text = lastMarket
+                    tvLastUpdate.text = lastUpdate
+                    tvFromSymbol.text = fromSymbol
+                    tvToSymbol.text = toSymbol
+                    Picasso.get().load(it.imageUrl).into(ivLogoCoin)
                 }
             }
         }

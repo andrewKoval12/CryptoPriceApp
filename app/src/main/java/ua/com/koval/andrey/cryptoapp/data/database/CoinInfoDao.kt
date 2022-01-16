@@ -5,7 +5,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import ua.com.koval.andrey.cryptoapp.data.network.model.CoinInfoDto
 
 @Dao
 interface CoinInfoDao {
