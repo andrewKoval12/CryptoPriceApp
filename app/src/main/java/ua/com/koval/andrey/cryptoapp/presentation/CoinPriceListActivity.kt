@@ -24,13 +24,9 @@ class CoinPriceListActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelProvider.AndroidViewModelFactory(application)
-        )[CoinViewModel::class.java]
-        viewModel.coinInfoList.observe(this) {
-            mAdapter.coinInfoList = it as ArrayList<CoinInfo>
-        }
+        viewModel = ViewModelProvider(this)[CoinViewModel::class.java]
+        viewModel.coinInfoList.observe(this) { mAdapter.submitList(it) }
+        binding.rvCoinPriceList.itemAnimator = null
     }
 
     private fun onClickListener() {
