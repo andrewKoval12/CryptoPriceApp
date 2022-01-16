@@ -1,6 +1,5 @@
 package ua.com.koval.andrey.cryptoapp.presentation.adapters
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -29,7 +28,6 @@ class CoinInfoAdapter(private val context: Context) :
         return CoinInfoViewHolder(binding)
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CoinInfoViewHolder, position: Int) {
         holder.bind(coinInfoList[position])
     }

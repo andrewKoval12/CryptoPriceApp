@@ -5,18 +5,18 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.squareup.picasso.Picasso
+import com.bumptech.glide.Glide
 import ua.com.koval.andrey.cryptoapp.databinding.ActivityCoinDetailBinding
 
 class CoinDetailActivity : AppCompatActivity() {
 
+
     private lateinit var viewModel: CoinViewModel
 
-    private lateinit var binding: ActivityCoinDetailBinding
+    private val binding by lazy { ActivityCoinDetailBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCoinDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setData()
     }
@@ -41,7 +41,7 @@ class CoinDetailActivity : AppCompatActivity() {
                     tvLastUpdate.text = lastUpdate
                     tvFromSymbol.text = fromSymbol
                     tvToSymbol.text = toSymbol
-                    Picasso.get().load(it.imageUrl).into(ivLogoCoin)
+                    Glide.with(this@CoinDetailActivity).load(imageUrl).into(ivLogoCoin)
                 }
             }
         }

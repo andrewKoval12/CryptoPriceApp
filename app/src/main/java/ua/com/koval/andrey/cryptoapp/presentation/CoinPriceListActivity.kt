@@ -13,7 +13,7 @@ class CoinPriceListActivity : AppCompatActivity() {
     private lateinit var viewModel: CoinViewModel
     private lateinit var mAdapter: CoinInfoAdapter
 
-    private lateinit var binding: ActivityCoinPriceListBinding
+    private val binding by lazy { ActivityCoinPriceListBinding.inflate(layoutInflater) }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,7 +47,6 @@ class CoinPriceListActivity : AppCompatActivity() {
     }
 
     private fun init() {
-        binding = ActivityCoinPriceListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         mAdapter = CoinInfoAdapter(this)
         binding.rvCoinPriceList.adapter = mAdapter
