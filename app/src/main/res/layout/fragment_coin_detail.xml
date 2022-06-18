@@ -11,11 +11,12 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_margin="16dp"
+        android:contentDescription="@string/coin_logo_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@mipmap/ic_launcher"
-        android:contentDescription="@string/coin_logo_img" />
+        tools:ignore="ImageContrastCheck"
+        tools:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/tvFromSymbol"
