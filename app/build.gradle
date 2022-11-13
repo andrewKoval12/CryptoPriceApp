@@ -38,6 +38,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'ua.com.koval.andrey.cryptoapp'
 }
 
 dependencies {
